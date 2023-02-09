@@ -1,0 +1,17 @@
+.country-card {
+  border-bottom: 1px solid #545454;
+  display: flex;
+  flex-direction: column;
+  &__bottom {
+    display: flex;
+    justify-content: flex-start;
+  }
+  &__spec {
+    display: inline-flex;
+    margin-right: 20px;
+  }
+  &__name {
+    color: #168fff;
+    cursor: pointer;
+  }
+}

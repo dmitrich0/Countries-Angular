@@ -1,0 +1,17 @@
+.countries-list {
+  width: 70%;
+  padding: 30px;
+}
+.main {
+  display: flex;
+}
+
+.countries-filters {
+  position: fixed;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  width: 30%;
+  border-left: 1px solid gray;
+  padding: 50px;
+}
