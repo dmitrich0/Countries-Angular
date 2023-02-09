@@ -13,6 +13,7 @@ import {PaginationComponent} from "./components/pagination/pagination.component"
 import {CompanyCardComponent} from "./components/company-card/company-card.component";
 import { ListFilterComponent } from './components/list-filter/list-filter.component';
 import { RadioFilterComponent } from './components/radio-filter/radio-filter.component';
+import {FormsModule} from "@angular/forms";
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { RadioFilterComponent } from './components/radio-filter/radio-filter.com
     BrowserModule,
     AppRoutingModule,
     GraphQLModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

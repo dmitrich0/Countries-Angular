@@ -10,9 +10,11 @@
   </div>
   <div class="countries-filters">
     <h2 class="countries-filters__title">Filters</h2>
-    <app-name-input></app-name-input>
-    <app-list-filter></app-list-filter>
-    <app-radio-filter></app-radio-filter>
+    <input [(ngModel)]="nameInputValue" type="text" (input)="onNameInputChange(nameInputValue)"
+           placeholder="Filter by country name..">
+    <!--    <app-name-input></app-name-input>-->
+    <!--    <app-list-filter></app-list-filter>-->
+    <!--    <app-radio-filter></app-radio-filter>-->
   </div>
 </main>
 

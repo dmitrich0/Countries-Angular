@@ -1,9 +1,3 @@
-<div *ngIf="!loading && !country">
-  This country doesn't exist
-</div>
-<div *ngIf="loading">
-  Loading...
-</div>
 <div *ngIf="country" class="country-card">
   <h2 class="country-card__name">{{country.name}}</h2>
   <div class="country-card__bottom">
