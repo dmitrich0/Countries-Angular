@@ -1,6 +1,6 @@
 import {Injectable} from '@angular/core';
 import {Apollo} from "apollo-angular";
-import {BehaviorSubject, Observable} from "rxjs";
+import {BehaviorSubject, Observable, Subscription} from "rxjs";
 import {ICountry} from "../../models/country.interface";
 import {COUNTRIES} from "../../graphql/graphql.queries";
 
@@ -14,19 +14,25 @@ export class CountryService {
   private countriesSubject: BehaviorSubject<ICountry[]> = new BehaviorSubject<ICountry[]>([]);
   private nameInputSubject: BehaviorSubject<string> = new BehaviorSubject<string>('');
   private radioInputSubject: BehaviorSubject<string> = new BehaviorSubject<string>('');
+  querySubscription: Subscription;
   countries$: Observable<ICountry[]> = this.countriesSubject.asObservable();
   allCountries$: Observable<ICountry[]> = this.countriesSubject.asObservable();
   nameInput$: Observable<string> = this.nameInputSubject.asObservable();
   radioInput$: Observable<string> = this.radioInputSubject.asObservable();
+  isLoading: boolean = true;
 
 
   constructor(private apollo: Apollo) {
-    this.apollo.watchQuery({
-      query: COUNTRIES
-    }).valueChanges.subscribe((result: any) => {
-      this.setCountries(result.data?.countries);
-      this.allCountriesSubject.next(result.data?.countries);
-    });
+    this.querySubscription = this.apollo.watchQuery({
+      query: COUNTRIES,
+      notifyOnNetworkStatusChange: true
+    }).valueChanges.subscribe(({data, loading}) => {
+      this.isLoading = loading;
+      // @ts-ignore
+      this.setCountries(data?.countries);
+      // @ts-ignore
+      this.allCountriesSubject.next(data?.countries);
+    })
   }
 
   setCountries(countries: ICountry[]): void {

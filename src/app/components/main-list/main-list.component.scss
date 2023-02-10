@@ -43,3 +43,8 @@
     border-color: $mainColor;
   }
 }
+.spinner {
+  position: absolute;
+  left: calc($mainWidth / 2);
+  top: 50%;
+}

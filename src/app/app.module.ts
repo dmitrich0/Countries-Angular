@@ -14,6 +14,7 @@ import {CompanyCardComponent} from "./components/company-card/company-card.compo
 import { ListFilterComponent } from './components/list-filter/list-filter.component';
 import { RadioFilterComponent } from './components/radio-filter/radio-filter.component';
 import {FormsModule} from "@angular/forms";
+import { SpinnerComponent } from './components/spinner/spinner.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import {FormsModule} from "@angular/forms";
     PaginationComponent,
     CompanyCardComponent,
     ListFilterComponent,
-    RadioFilterComponent
+    RadioFilterComponent,
+    SpinnerComponent
   ],
   imports: [
     BrowserModule,
