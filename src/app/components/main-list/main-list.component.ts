@@ -14,10 +14,13 @@ export class MainListComponent implements OnInit, OnDestroy {
   countriesSub: Subscription | null = null;
   nameInputValue!: string;
   nameInputSub: Subscription | null = null;
+  radioInputValue!: string;
+  radioInputSub: Subscription | null = null;
 
   constructor(private apollo: Apollo, public countryService: CountryService) {
     this.countriesSub = this.countryService.countries$.subscribe(countries => this.countries = countries);
     this.nameInputSub = this.countryService.nameInput$.subscribe(value => this.nameInputValue = value);
+    this.radioInputSub = this.countryService.radioInput$.subscribe(value => this.radioInputValue = value);
   }
 
   ngOnInit(): void {
@@ -26,6 +29,12 @@ export class MainListComponent implements OnInit, OnDestroy {
   onNameInputChange(value: string) {
     this.countryService.setCountries(this.countryService.getCountriesByName(value));
     this.countryService.setNameInput(value);
+  }
+
+  onRadioInputChange(continent: string) {
+    console.log(this.radioInputValue);
+    this.countryService.setCountries(this.countryService.getCountriesByContinent(continent));
+    this.countryService.setRadioInput(continent);
   }
 
   ngOnDestroy(): void {

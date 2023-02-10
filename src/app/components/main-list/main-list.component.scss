@@ -14,4 +14,8 @@
   width: 30%;
   border-left: 1px solid gray;
   padding: 50px;
+  &__radio-block {
+    display: flex;
+    flex-direction: column;
+  }
 }
