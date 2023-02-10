@@ -12,18 +12,20 @@ import {CountryService} from "../../services/countries-service/country.service";
 export class MainListComponent implements OnInit, OnDestroy {
   countries!: ICountry[];
   countriesSub: Subscription | null = null;
-  nameInputValue: string | null = null;
+  nameInputValue!: string;
+  nameInputSub: Subscription | null = null;
 
   constructor(private apollo: Apollo, public countryService: CountryService) {
     this.countriesSub = this.countryService.countries$.subscribe(countries => this.countries = countries);
+    this.nameInputSub = this.countryService.nameInput$.subscribe(value => this.nameInputValue = value);
   }
 
   ngOnInit(): void {
   }
 
-  onNameInputChange(value: string | null) {
-    value = value ? value : ""
+  onNameInputChange(value: string) {
     this.countryService.setCountries(this.countryService.getCountriesByName(value));
+    this.countryService.setNameInput(value);
   }
 
   ngOnDestroy(): void {

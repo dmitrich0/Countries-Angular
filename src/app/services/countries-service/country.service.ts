@@ -12,8 +12,10 @@ import {COUNTRIES} from "../../graphql/graphql.queries";
 export class CountryService {
   private allCountriesSubject: BehaviorSubject<ICountry[]> = new BehaviorSubject<ICountry[]>([]);
   private countriesSubject: BehaviorSubject<ICountry[]> = new BehaviorSubject<ICountry[]>([]);
+  private nameInputSubject: BehaviorSubject<string> = new BehaviorSubject<string>('');
   countries$: Observable<ICountry[]> = this.countriesSubject.asObservable();
   allCountries$: Observable<ICountry[]> = this.countriesSubject.asObservable();
+  nameInput$: Observable<string> = this.nameInputSubject.asObservable();
 
 
   constructor(private apollo: Apollo) {
@@ -25,8 +27,12 @@ export class CountryService {
     });
   }
 
-  setCountries(countries: ICountry[]) {
+  setCountries(countries: ICountry[]): void {
     this.countriesSubject.next(countries);
+  }
+
+  setNameInput(value: string): void {
+    this.nameInputSubject.next(value);
   }
 
   getCountriesByName(value: string): ICountry[] {
