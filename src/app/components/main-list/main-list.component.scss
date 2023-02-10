@@ -1,11 +1,14 @@
 @import "../../../styles";
+
 .countries-list {
   width: $mainWidth;
   padding: 30px;
 }
+
 .countries-list__title {
   font-size: 32px;
 }
+
 .main {
   display: flex;
 }
@@ -18,20 +21,25 @@
   width: calc(100% - $mainWidth);
   border-left: 2px solid $borderColor;
   padding: 50px;
+
   &__radio-block {
     display: flex;
     flex-direction: column;
   }
 }
+
 .countries-filters__radio-input {
   font-size: 14px;
+
   input {
     margin-right: 15px;
   }
+
   &:not(:last-child) {
     margin-bottom: 10px;
   }
 }
+
 .countries-filters__name-input {
   margin-bottom: 30px;
   padding: 5px;
@@ -39,15 +47,22 @@
   border: none;
   border-bottom: 1px solid $borderColor;
   caret-color: $mainColor;
+
   &:focus {
     border-color: $mainColor;
   }
 }
+
 .spinner {
   position: absolute;
   left: calc($mainWidth / 2);
   top: 50%;
 }
+
 .countries-filters__radio-block {
   margin-bottom: 30px;
+
+  p {
+    font-weight: 700;
+  }
 }

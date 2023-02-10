@@ -1,9 +1,10 @@
 <main class="main">
   <div class="countries-list">
-    <h2 class="countries-list__title" *ngIf="countries.length === 0">We couldn't find anything. try changing filters</h2>
+    <h2 class="countries-list__title" *ngIf="countries.length === 0 && !countryService.isLoading">We couldn't find anything. try changing filters</h2>
     <h2 class="countries-list__title" *ngIf="countries.length !== 0">Countries</h2>
     <app-spinner *ngIf="countryService.isLoading" class="spinner"></app-spinner>
-    <app-company-card [country]="country" *ngFor="let country of countries.slice((countryService.getPage() - 1) * 10, (countryService.getPage() - 1) * 10 + 10)">
+    <app-company-card [country]="country"
+                      *ngFor="let country of countries.slice((countryService.getPage() - 1) * 10, (countryService.getPage() - 1) * 10 + 10)">
     </app-company-card>
     <app-pagination *ngIf="!countryService.isLoading && countries.length !== 0"></app-pagination>
   </div>
@@ -43,9 +44,6 @@
                                                          (change)="onRadioInputChange(radioInputValue)">Oceania</div>
     </div>
     <app-multibox></app-multibox>
-    <!--    <app-name-input></app-name-input>-->
-    <!--    <app-list-filter></app-list-filter>-->
-    <!--    <app-radio-filter></app-radio-filter>-->
   </div>
 </main>
 

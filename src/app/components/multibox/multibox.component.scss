@@ -27,6 +27,7 @@
     box-shadow: $borderColor -1px 1px 5px;
     label {
       display: block;
+      padding: 5px;
       &:hover {
         background-color: #1e90ff;
       }

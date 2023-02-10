@@ -45,5 +45,17 @@ export class MainListComponent implements OnInit, OnDestroy {
       this.countriesSub.unsubscribe();
       this.countriesSub = null;
     }
+    if (this.nameInputSub !== null) {
+      this.nameInputSub.unsubscribe();
+      this.countriesSub = null;
+    }
+    if (this.radioInputSub !== null) {
+      this.radioInputSub.unsubscribe();
+      this.countriesSub = null;
+    }
+    if (this.currenciesSub !== null) {
+      this.currenciesSub.unsubscribe();
+      this.countriesSub = null;
+    }
   }
 }

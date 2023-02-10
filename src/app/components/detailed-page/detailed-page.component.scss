@@ -1,4 +1,5 @@
 @import "../../../styles";
+
 .main {
   padding: 30px 50px;
 }
@@ -8,6 +9,7 @@
   user-select: none;
   cursor: pointer;
   display: block;
+
   &:hover {
     color: $mainColorHover;
   }
@@ -23,10 +25,11 @@
   span {
     display: inline-block;
   }
+
   width: 50%;
   display: flex;
   justify-content: space-between;
-  padding: 10px 25px 10px 0;
+  padding: 20px 50px 20px 0;
 }
 
 .card__value {

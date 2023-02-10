@@ -17,7 +17,7 @@ export class CompanyCardComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  navigateToDetailedPage(code:  string) {
+  navigateToDetailedPage(code: string): void {
     this.router.navigate(['/country/', code]);
   }
 }

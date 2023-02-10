@@ -4,17 +4,20 @@
   flex-direction: column;
   cursor: pointer;
   padding: 5px 15px;
+
   &:hover {
     background-color: #f4f4f4;
   }
+
   &__bottom {
     display: flex;
-    justify-content: flex-start;
   }
+
   &__spec {
     display: inline-flex;
-    margin-right: 5%;
+    width: 40%;
   }
+
   &__name {
     color: #168fff;
   }
@@ -22,4 +25,5 @@
 
 .country-card__spec-value {
   color: #168fff;
+  margin-left: 100px;
 }

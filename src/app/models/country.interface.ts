@@ -7,6 +7,10 @@ export interface ICountry {
   continent: Continent;
 }
 
+export interface ICountryQuery {
+  countries: ICountry[];
+}
+
 export interface Continent {
   name: string;
 }
