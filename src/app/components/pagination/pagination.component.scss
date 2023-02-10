@@ -1,0 +1,20 @@
+@import "../../../styles";
+.pagination {
+  padding: 30px 0 0 20px;
+  font-weight: 900;
+  user-select: none;
+}
+.page {
+  padding: 0 10px;
+}
+.btn {
+  background: none;
+  border: none;
+  color: $mainColor;
+  font-size: 1.1em;
+  cursor: pointer;
+  &:hover {
+    color: $mainColorHover;
+    transform: scale(1.1);
+  }
+}

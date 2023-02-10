@@ -15,12 +15,14 @@ export class CountryService {
   private nameInputSubject: BehaviorSubject<string> = new BehaviorSubject<string>('');
   private radioInputSubject: BehaviorSubject<string> = new BehaviorSubject<string>('');
   private currenciesSubject: BehaviorSubject<string[]> = new BehaviorSubject<string[]>(['EUR', 'USD', 'RUB']);
+  private pageSubject: BehaviorSubject<number> = new BehaviorSubject<number>(1);
   querySubscription: Subscription;
   countries$: Observable<ICountry[]> = this.countriesSubject.asObservable();
   allCountries$: Observable<ICountry[]> = this.countriesSubject.asObservable();
   nameInput$: Observable<string> = this.nameInputSubject.asObservable();
   radioInput$: Observable<string> = this.radioInputSubject.asObservable();
   currenciesInput$: Observable<string[]> = this.currenciesSubject.asObservable();
+  page$: Observable<number> = this.pageSubject.asObservable();
   isLoading: boolean = true;
 
 
@@ -47,6 +49,10 @@ export class CountryService {
 
   setRadioInput(value: string): void {
     this.radioInputSubject.next(value);
+  }
+
+  setPage(value: number): void {
+    this.pageSubject.next(value);
   }
 
   setCurrenciesInput(value: string[]): void {
@@ -88,6 +94,7 @@ export class CountryService {
     const filteredName = this.getCountriesByName(nameFilter);
     const filteredContinent = this.getCountriesByContinent(continentFilter);
     const filteredCurrency = this.getCountriesByCurrencies(currencyFilter);
+    this.setPage(1);
     return filteredName.filter(country => filteredContinent.includes(country)).filter(country2 => filteredCurrency.includes(country2));
   }
 
@@ -95,5 +102,17 @@ export class CountryService {
     let currentCurrencies: string[] = [];
     this.currenciesInput$.subscribe(currencies => currentCurrencies = currencies);
     return currentCurrencies;
+  }
+
+  getCurrentCountries(): ICountry[] {
+    let currentCountries: ICountry[] = [];
+    this.countries$.subscribe(countries => currentCountries = countries);
+    return currentCountries;
+  }
+
+  getPage(): number {
+    let page: number = 1;
+    this.page$.subscribe(value => page = value);
+    return page;
   }
 }

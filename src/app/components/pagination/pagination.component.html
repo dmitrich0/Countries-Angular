@@ -1,1 +1,5 @@
-<p>pagination works!</p>
+<div class="pagination">
+  <button (click)="prevPage()" class="btn prev"><</button>
+  <span class="page">{{countryService.getPage()}}</span>
+  <button (click)="nextPage()" class="btn next">></button>
+</div>

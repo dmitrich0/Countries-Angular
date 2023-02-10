@@ -1,10 +1,11 @@
 <main class="main">
   <div class="countries-list">
-    <h2 class="countries-list__title">Countries</h2>
+    <h2 class="countries-list__title" *ngIf="countries.length === 0">We couldn't find anything. try changing filters</h2>
+    <h2 class="countries-list__title" *ngIf="countries.length !== 0">Countries</h2>
     <app-spinner *ngIf="countryService.isLoading" class="spinner"></app-spinner>
-    <app-company-card [country]="country" *ngFor="let country of countries">
+    <app-company-card [country]="country" *ngFor="let country of countries.slice((countryService.getPage() - 1) * 10, (countryService.getPage() - 1) * 10 + 10)">
     </app-company-card>
-    <app-pagination *ngIf="!countryService.isLoading"></app-pagination>
+    <app-pagination *ngIf="!countryService.isLoading && countries.length !== 0"></app-pagination>
   </div>
   <div class="countries-filters">
     <h2 class="countries-filters__title">Filters</h2>
