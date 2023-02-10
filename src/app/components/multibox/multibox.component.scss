@@ -1,0 +1,35 @@
+@import "../../../styles";
+
+.border-blue {
+  border-color: $mainColor !important;
+}
+
+.multiselect {
+  width: 60%;
+  .selectbox {
+    position: relative;
+    select {
+      width: 100%;
+      border: none;
+      border-bottom: 1px solid $borderColor;
+      padding: 5px;
+    }
+    .over-select {
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 0;
+      bottom: 0;
+    }
+  }
+  .checkboxes {
+    border: 1px $borderColor solid;
+    box-shadow: $borderColor -1px 1px 5px;
+    label {
+      display: block;
+      &:hover {
+        background-color: #1e90ff;
+      }
+    }
+  }
+}

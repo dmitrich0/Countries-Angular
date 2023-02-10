@@ -15,6 +15,7 @@ import { ListFilterComponent } from './components/list-filter/list-filter.compon
 import { RadioFilterComponent } from './components/radio-filter/radio-filter.component';
 import {FormsModule} from "@angular/forms";
 import { SpinnerComponent } from './components/spinner/spinner.component';
+import { MultiboxComponent } from './components/multibox/multibox.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { SpinnerComponent } from './components/spinner/spinner.component';
     CompanyCardComponent,
     ListFilterComponent,
     RadioFilterComponent,
-    SpinnerComponent
+    SpinnerComponent,
+    MultiboxComponent
   ],
   imports: [
     BrowserModule,

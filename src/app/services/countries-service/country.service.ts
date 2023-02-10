@@ -14,11 +14,13 @@ export class CountryService {
   private countriesSubject: BehaviorSubject<ICountry[]> = new BehaviorSubject<ICountry[]>([]);
   private nameInputSubject: BehaviorSubject<string> = new BehaviorSubject<string>('');
   private radioInputSubject: BehaviorSubject<string> = new BehaviorSubject<string>('');
+  private currenciesSubject: BehaviorSubject<string[]> = new BehaviorSubject<string[]>(['EUR', 'USD', 'RUB']);
   querySubscription: Subscription;
   countries$: Observable<ICountry[]> = this.countriesSubject.asObservable();
   allCountries$: Observable<ICountry[]> = this.countriesSubject.asObservable();
   nameInput$: Observable<string> = this.nameInputSubject.asObservable();
   radioInput$: Observable<string> = this.radioInputSubject.asObservable();
+  currenciesInput$: Observable<string[]> = this.currenciesSubject.asObservable();
   isLoading: boolean = true;
 
 
@@ -47,6 +49,10 @@ export class CountryService {
     this.radioInputSubject.next(value);
   }
 
+  setCurrenciesInput(value: string[]): void {
+    this.currenciesSubject.next(value);
+  }
+
   getCountriesByName(value: string): ICountry[] {
     return this.allCountriesSubject.value.filter((country: ICountry) => country.name.toLowerCase().includes(value.toLowerCase()));
   }
@@ -57,5 +63,37 @@ export class CountryService {
 
   getCountriesByContinent(continent: string): ICountry[] {
     return this.allCountriesSubject.value.filter((country: ICountry) => country.continent.name.includes(continent));
+  }
+
+  getCountriesByCurrencies(currencies: string[]): ICountry[] {
+    return this.allCountriesSubject.value.filter((country: ICountry) => {
+      if (currencies.length === 3)
+        return true;
+      for (const currency of currencies) {
+        if (country.currency === currency) {
+          return true;
+        }
+      }
+      return false;
+    })
+  }
+
+  filterCurrencies(): ICountry[] {
+    let nameFilter: string = '';
+    let continentFilter: string = '';
+    let currencyFilter: string[] = ['EUR', 'USD', 'RUB'];
+    this.nameInput$.subscribe(value => nameFilter = value);
+    this.radioInput$.subscribe(value => continentFilter = value);
+    this.currenciesInput$.subscribe(value => currencyFilter = value);
+    const filteredName = this.getCountriesByName(nameFilter);
+    const filteredContinent = this.getCountriesByContinent(continentFilter);
+    const filteredCurrency = this.getCountriesByCurrencies(currencyFilter);
+    return filteredName.filter(country => filteredContinent.includes(country)).filter(country2 => filteredCurrency.includes(country2));
+  }
+
+  getCurrentCurrencies(): string[] {
+    let currentCurrencies: string[] = [];
+    this.currenciesInput$.subscribe(currencies => currentCurrencies = currencies);
+    return currentCurrencies;
   }
 }

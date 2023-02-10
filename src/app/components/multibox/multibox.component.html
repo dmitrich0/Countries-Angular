@@ -1,0 +1,17 @@
+<div class="multiselect">
+    <div class="selectbox" (click)="showCheckboxes()">
+        <select [class.border-blue]="checkboxesShown">
+            <option>Filter by currency</option>
+        </select>
+        <div class="over-select"></div>
+    </div>
+    <div class="checkboxes" *ngIf="checkboxesShown">
+        <ng-container *ngFor="let currency of currencies; let index = index">
+            <label [attr.for]="index">
+                <input type="checkbox" [attr.id]="index"
+                       [checked]="countryService.getCurrentCurrencies().indexOf(currency) != -1" (change)="onChange(currency)">
+              {{ currency }}
+            </label>
+        </ng-container>
+    </div>
+</div>
