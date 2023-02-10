@@ -1,6 +1,6 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
 import {ICountry} from "../../models/country.interface";
-import {ActivatedRoute, Params} from "@angular/router";
+import {ActivatedRoute, Params, Router} from "@angular/router";
 import {Apollo} from "apollo-angular";
 import {CountryService} from "../../services/countries-service/country.service";
 
@@ -9,7 +9,7 @@ import {CountryService} from "../../services/countries-service/country.service";
   templateUrl: './detailed-page.component.html',
   styleUrls: ['./detailed-page.component.scss']
 })
-export class DetailedPageComponent implements OnInit, OnDestroy {
+export class DetailedPageComponent implements OnInit {
   // @ts-ignore
   country: ICountry;
   countryCode!: string;
@@ -19,7 +19,8 @@ export class DetailedPageComponent implements OnInit, OnDestroy {
   constructor(
     private activatedRoute: ActivatedRoute,
     private apollo: Apollo,
-    private countryService: CountryService) {
+    private countryService: CountryService,
+    private router: Router) {
   }
 
   ngOnInit(): void {
@@ -34,6 +35,7 @@ export class DetailedPageComponent implements OnInit, OnDestroy {
     // });
   }
 
-  ngOnDestroy(): void {
+  navigateToHome() {
+    this.router.navigate(['../../']);
   }
 }

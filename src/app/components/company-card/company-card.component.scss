@@ -1,17 +1,25 @@
 .country-card {
-  border-bottom: 1px solid #545454;
+  border-bottom: 2px solid #b0b0b0;
   display: flex;
   flex-direction: column;
+  cursor: pointer;
+  padding: 5px 15px;
+  &:hover {
+    background-color: #f4f4f4;
+  }
   &__bottom {
     display: flex;
     justify-content: flex-start;
   }
   &__spec {
     display: inline-flex;
-    margin-right: 20px;
+    margin-right: 5%;
   }
   &__name {
     color: #168fff;
-    cursor: pointer;
   }
+}
+
+.country-card__spec-value {
+  color: #168fff;
 }

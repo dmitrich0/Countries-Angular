@@ -1,23 +1,32 @@
-<div *ngIf="country" class="country-card">
-  <h2 class="country-card__name">{{country.name}}</h2>
-  <div class="country-card__bottom">
-    <div class="country-card__spec">
-      <p>Name: {{country.name}}</p>
-    </div>
-    <div class="country-card__spec">
-      <p>Code: {{country.code}}</p>
-    </div>
-    <div class="country-card__spec">
-      <p>Capital: {{country.capital}}</p>
-    </div>
-    <div class="country-card__spec">
-      <p>Currency: {{country.currency}}</p>
-    </div>
-    <div class="country-card__spec">
-      <p>Phone: {{country.phone}}</p>
-    </div>
-    <div class="country-card__spec">
-      <p>Continents: {{country.continent.name}}</p>
+<main class="main">
+  <div *ngIf="country" class="country-card">
+    <a (click)="navigateToHome()" class="country-card__back-btn">&#8592;&nbsp;Вернуться</a>
+    <h2 class="country-card__name">{{country.name}}</h2>
+    <div class="country-card__bottom">
+      <div class="country-card__spec">
+        <span class="card__param">Name</span>
+        <span class="card__value">{{country.name}}</span>
+      </div>
+      <div class="country-card__spec">
+        <span class="card__param">Code</span>
+        <span class="card__value">{{country.code}}</span>
+      </div>
+      <div class="country-card__spec">
+        <span class="card__param">Capital</span>
+        <span class="card__value">{{country.capital}}</span>
+      </div>
+      <div class="country-card__spec">
+        <span class="card__param">Currency</span>
+        <span class="card__value">{{country.currency}}</span>
+      </div>
+      <div class="country-card__spec">
+        <span class="card__param">Phone</span>
+        <span class="card__value">{{country.phone}}</span>
+      </div>
+      <div class="country-card__spec">
+        <span class="card__param">Continent</span>
+        <span class="card__value">{{country.continent.name}}</span>
+      </div>
     </div>
   </div>
-</div>
+</main>

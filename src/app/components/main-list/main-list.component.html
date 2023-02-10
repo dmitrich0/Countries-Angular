@@ -10,30 +10,38 @@
   </div>
   <div class="countries-filters">
     <h2 class="countries-filters__title">Filters</h2>
-      <input [(ngModel)]="nameInputValue" type="text" (input)="onNameInputChange(nameInputValue)"
-             placeholder="Filter by country name..">
+      <input class="countries-filters__name-input" [(ngModel)]="nameInputValue" type="text"
+             (input)="onNameInputChange(nameInputValue)"
+             placeholder="Name">
       <div class="countries-filters__radio-block">
-        <input class="countries-filters__radio-input" [(ngModel)]="radioInputValue" type="radio" name="continent"
-               value="Europe"
-               (change)="onRadioInputChange(radioInputValue)">Europe
-        <input class="countries-filters__radio-input" [(ngModel)]="radioInputValue" type="radio" name="continent"
-               value="Asia"
-               (change)="onRadioInputChange(radioInputValue)">Asia
-        <input class="countries-filters__radio-input" [(ngModel)]="radioInputValue" type="radio" name="continent"
-               value="North America"
-               (change)="onRadioInputChange(radioInputValue)">North America
-        <input class="countries-filters__radio-input" [(ngModel)]="radioInputValue" type="radio" name="continent"
-               value="Africa"
-               (change)="onRadioInputChange(radioInputValue)">Africa
-        <input class="countries-filters__radio-input" [(ngModel)]="radioInputValue" type="radio" name="continent"
-               value="Antarctica"
-               (change)="onRadioInputChange(radioInputValue)">Antarctica
-        <input class="countries-filters__radio-input" [(ngModel)]="radioInputValue" type="radio" name="continent"
-               value="South America"
-               (change)="onRadioInputChange(radioInputValue)">South America
-        <input class="countries-filters__radio-input" [(ngModel)]="radioInputValue" type="radio" name="continent"
-               value="Oceania"
-               (change)="onRadioInputChange(radioInputValue)">Oceania
+        <p>Continent:</p>
+        <div class="countries-filters__radio-input"><input [(ngModel)]="radioInputValue" type="radio" name="continent"
+                                                           value="Europe"
+                                                           (change)="onRadioInputChange(radioInputValue)">Europe</div>
+        <div class="countries-filters__radio-input"><input class="countries-filters__radio-input"
+                                                           [(ngModel)]="radioInputValue" type="radio" name="continent"
+                                                           value="Asia"
+                                                           (change)="onRadioInputChange(radioInputValue)">Asia</div>
+        <div class="countries-filters__radio-input"><input class="countries-filters__radio-input"
+                                                           [(ngModel)]="radioInputValue" type="radio" name="continent"
+                                                           value="North America"
+                                                           (change)="onRadioInputChange(radioInputValue)">North America</div>
+        <div class="countries-filters__radio-input"><input class="countries-filters__radio-input"
+                                                           [(ngModel)]="radioInputValue" type="radio" name="continent"
+                                                           value="Africa"
+                                                           (change)="onRadioInputChange(radioInputValue)">Africa</div>
+        <div class="countries-filters__radio-input"><input class="countries-filters__radio-input"
+                                                           [(ngModel)]="radioInputValue" type="radio" name="continent"
+                                                           value="Antarctica"
+                                                           (change)="onRadioInputChange(radioInputValue)">Antarctica</div>
+        <div class="countries-filters__radio-input"><input class="countries-filters__radio-input"
+                                                           [(ngModel)]="radioInputValue" type="radio" name="continent"
+                                                           value="South America"
+                                                           (change)="onRadioInputChange(radioInputValue)">South America</div>
+        <div class="countries-filters__radio-input"><input class="countries-filters__radio-input"
+                                                           [(ngModel)]="radioInputValue" type="radio" name="continent"
+                                                           value="Oceania"
+                                                           (change)="onRadioInputChange(radioInputValue)">Oceania</div>
       </div>
     <!--    <app-name-input></app-name-input>-->
     <!--    <app-list-filter></app-list-filter>-->
