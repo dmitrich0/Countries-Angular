@@ -4,6 +4,8 @@ SPA on Angular. GraphQL. You can see countries, their capitals, currencies, code
 
 Filters, pagination.
 
+!!! Filter by currency: selects countries with ALL currencies when all options are active (not only RU, USD and EUR). In fact, in this state, the filter is not applied.
+
 No bootstap-like frameworks and component libraries were used.
 
 ![image](https://user-images.githubusercontent.com/88574169/218158812-f1eb465a-8fea-4233-8562-2b19ca241598.png)
